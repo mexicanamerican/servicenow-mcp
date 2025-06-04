@@ -1,0 +1,41 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => {
+      const args = ['-m','mcp_server_servicenow.cli','--transport','stdio','--url',config.url];
+      if (config.token) {
+        args.push('--token', config.token);
+      } else if (config.clientId && config.clientSecret && config.username && config.password) {
+        args.push('--client-id', config.clientId,'--client-secret', config.clientSecret,'--username', config.username,'--password', config.password);
+      } else {
+        args.push('--username', config.username,'--password', config.password);
+      }
+      return { command: 'python', args };
+    }
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - url
+    properties:
+      url:
+        type: string
+        description: ServiceNow instance URL
+      username:
+        type: string
+      password:
+        type: string
+      token:
+        type: string
+      clientId:
+        type: string
+      clientSecret:
+        type: string
+  exampleConfig:
+    url: https://your-instance.service-now.com
+    username: user@example.com
+    password: yourpassword
