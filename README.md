@@ -1,6 +1,7 @@
 # ServiceNow MCP Server
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![smithery badge](https://smithery.ai/badge/@mexicanamerican/servicenow-mcp)](https://smithery.ai/server/@mexicanamerican/servicenow-mcp)
 
 A Model Context Protocol (MCP) server that interfaces with ServiceNow, allowing AI agents to access and manipulate ServiceNow data through a secure API. This server enables natural language interactions with ServiceNow, making it easier to search for records, update them, and manage scripts.
 
@@ -33,6 +34,14 @@ A Model Context Protocol (MCP) server that interfaces with ServiceNow, allowing 
 - `update_script`: Update ServiceNow script files (script includes, business rules, etc.)
 
 ## Installation
+
+### Installing via Smithery
+
+To install ServiceNow MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@mexicanamerican/servicenow-mcp):
+
+```bash
+npx -y @smithery/cli install @mexicanamerican/servicenow-mcp --client claude
+```
 
 ### From PyPI
 
